@@ -43,8 +43,9 @@
     "babel-preset-airbnb": "^2.4.0",
     "bootstrap": "^4.0.0",
     "jquery": "^3.3.1",
+    "mocha": "^5.0.0",
     "popper.js": "^1.12.9",
     "truffle-contract": "^1.1.11",
-    "web3": "^0.20.0"
+    "web3": "^1.0.0-beta.29"
   }
 }
