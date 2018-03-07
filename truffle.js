@@ -24,7 +24,7 @@ module.exports = {
     },
     rinkeby: {
       provider: function() {
-        return new HDWalletProvider(process.env.RINKBY_MNEMONICS, "https://ropsten.infura.io/" + process.env.RINKBY_INFURA_API);
+        return new HDWalletProvider(process.env.RINKEBY_MNEMONICS, "https://rinkeby.infura.io/" + process.env.RINKEBY_INFURA_API);
       },
       network_id: 4, // Match Rinkeby network
     },
