@@ -1,5 +1,7 @@
 // Allows us to use ES6 in our migrations and tests.
 require('babel-register');
+require('dotenv').config();
+const HDWalletProvider = require('truffle-hdwallet-provider');
 
 module.exports = {
   networks: {
@@ -13,25 +15,24 @@ module.exports = {
       port: 8545,
       network_id: '*', // Match any network id
     },
-    rinkeby: {
+    rinkeby_node: {
       host: 'rinkeby',
       port: 8545,
       network_id: 4, // Match Rinkeby network
       gas: 4704588,
       gasPrice: 65000000000,
     },
-    main: {
-      host: 'rinkeby',
-      port: 8545,
-      network_id: 1, // Match Main network
-      gas: 4704588, // Check the current gas limit first
-      gasPrice: 65000000000, // Check the current gas price first
+    rinkeby: {
+      provider: function() {
+        return new HDWalletProvider(process.env.RINKBY_MNEMONICS, "https://ropsten.infura.io/" + process.env.RINKBY_INFURA_API);
+      },
+      network_id: 4, // Match Rinkeby network
     },
-  },
-  solc: {
-    optimizer: {
-      enabled: true,
-      runs: 200,
+    mainnet: {
+      provider: function() {
+        return new HDWalletProvider(process.env.MAINNET_MNEMONICS, "https://mainnet.infura.io/" + process.env.MAINNET_INFURA_API);
+      },
+      network_id: 1, // Match Main network
     },
   },
 };

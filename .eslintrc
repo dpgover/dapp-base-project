@@ -7,6 +7,7 @@
   },
   "env": {
     "browser": true,
-    "mocha": true
+    "mocha": true,
+    "process": true
   }
 }
